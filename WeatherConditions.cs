@@ -60,6 +60,6 @@ namespace WeatherDiary
             percipitationAmmount = aPercipitationAmmount;
             percipitations = aPercipitations;}
 
-        public void ()
+        public void WriteToFile() { }
     }
 }

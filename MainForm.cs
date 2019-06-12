@@ -68,7 +68,31 @@ namespace WeatherDiary
         static string path = @"Weather.json";
         FileInfo fileInf = new FileInfo(path); //путь к файлу
         DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<WeatherConditions>)); //переменная сериализации
+       
+        
+        // ф-ция возвращения всех полей в исходное состояние
+        private void Reset()
+        {
+            
+            TimeMTBox.Text = "0000";
+            SeasonBox.SelectedItem = "";
+            DayLengthMTBox.Text = "0000";
+            WatchPlacetextBox.Text = "";
+            TemperatureUpDown.Value = Convert.ToDecimal(0.0);
+            PressureUpDown.Value = Convert.ToDecimal(0.0);
+            WindDirectionBox.SelectedItem = "";
+            WindUpDown.Value = Convert.ToDecimal(0.0);
+            CloudBox.SelectedItem = "";
+            HumidityUpDown.Value = Convert.ToDecimal(0.0);
+            PercipitationUpDown.Value = Convert.ToDecimal(0.0);
 
+            NothingCB.Checked = false;
+            RainCB.Checked = false;
+            SnowCB.Checked = false;
+            ThunderstormCB.Checked = false;
+            FogCB.Checked = false;
+            HailCB.Checked = false;
+        }
         //узнаем осадки
         private void getPercipitations()
         {
@@ -136,26 +160,7 @@ namespace WeatherDiary
                     jsonFormatter.WriteObject(fsw, classExemps);
                 }
             }
-
-            //возвращение всех полей в исходное состояние
-            TimeMTBox.Text = "0000";
-            SeasonBox.SelectedItem = "";
-            DayLengthMTBox.Text = "0000";
-            WatchPlacetextBox.Text = "";
-            TemperatureUpDown.Value = Convert.ToDecimal(0.0);
-            PressureUpDown.Value = Convert.ToDecimal(0.0);
-            WindDirectionBox.SelectedItem = "";
-            WindUpDown.Value = Convert.ToDecimal(0.0);
-            CloudBox.SelectedItem = "";
-            HumidityUpDown.Value = Convert.ToDecimal(0.0);
-            PercipitationUpDown.Value = Convert.ToDecimal(0.0);
-
-            NothingCB.Checked = false;
-            RainCB.Checked = false;
-            SnowCB.Checked = false;
-            ThunderstormCB.Checked = false;
-            FogCB.Checked = false;
-            HailCB.Checked = false;
+            Reset();
 
         }
 
